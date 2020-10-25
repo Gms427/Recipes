@@ -27,23 +27,57 @@ namespace Full_GRASP_And_SOLID
             this.Equipment = equipment;
         }
 
-        public Product Input { get; set; }
-
-        public double Quantity { get; set; }
-        
+        private Product input;
+        public Product Input
+        { 
+            get
+            {
+                return this.input;
+            } 
+            set
+            {
+                if(value == null) // Chequeo de la precondición, la instancia de la clase
+                // Product a asignar no debe ser nula
+                {
+                    throw new NullReferenceException();
+                }
+                else // Si la instancia no es nula, se le asigna el valor a la clase Step
+                {
+                    this.input = value;
+                }
+            } 
+        }
+        private double quantity;
+        public double Quantity 
+        { 
+            get
+            {
+                return this.quantity;
+            } 
+            set
+            {    
+                if(value > 0) // Chequeo de la precondición, el valor a asignar debe ser positivo
+                {
+                    this.quantity = value;
+                }
+                else // Si el valor es 0 o negativo, se lanza una excepción
+                {
+                    throw new NegativeValueException("La cantidad no puede ser negativa");
+                }
+            }
+        }
         // Precondición: el tiempo tiene que ser mayor a 0
         // Postcondición: el tiempo sea igual al recibido
-        // Invariante: La cantidad sigue siendo la misma
+        // Invariante: La cantidad sigue siendo la misma        
         private int time;
         public int Time
         { 
             get
             {
-                return this.time;
+                return this.time;   
             } 
             set
             {
-                
                 if(value > 0) // Chequeo de la precondición, el tiempo debe ser mayor a 0
                 {
                     this.time = value;
