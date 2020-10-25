@@ -27,6 +27,9 @@ namespace Full_GRASP_And_SOLID
             this.Equipment = equipment;
         }
 
+        // Precondición: Product no puede ser nulo
+        // Postcondición: Product debe ser igual al recibido
+        // Invariante: El tiempo sigue siendo el mismo
         private Product input;
         public Product Input
         { 
@@ -47,6 +50,10 @@ namespace Full_GRASP_And_SOLID
                 }
             } 
         }
+
+        // Precondición: Quantity tiene que ser mayor a 0
+        // Postcondición: Quantity debe ser igual al recibido
+        // Invariante: El tiempo sigue siendo el mismo
         private double quantity;
         public double Quantity 
         { 
